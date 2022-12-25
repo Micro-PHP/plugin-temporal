@@ -5,7 +5,6 @@ namespace Micro\Plugin\Temporal\Worker\Expander;
 use Micro\Component\DependencyInjection\Autowire\AutowireHelperFactoryInterface;
 use Micro\Plugin\Locator\Facade\LocatorFacadeInterface;
 use Micro\Plugin\Temporal\Activity\ActivityInterface;
-use Micro\Plugin\Temporal\Activity\Locator\ActivityLocatorInterface;
 use Micro\Plugin\Temporal\Workflow\WorkflowInterface;
 use Temporal\Worker\WorkerInterface;
 

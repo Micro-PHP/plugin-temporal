@@ -23,7 +23,7 @@ class WorkflowWorkerConfiguration extends PluginRoutingKeyConfiguration implemen
      */
     public function getRelayAddress(): string
     {
-        return $this->get(self::CFG_RELAY_ADDRESS, 'tcp://127.0.0.1:7233');
+        return $this->get(self::CFG_RELAY_ADDRESS, 'tcp://localhost:7233');
     }
 
     /**
@@ -31,7 +31,7 @@ class WorkflowWorkerConfiguration extends PluginRoutingKeyConfiguration implemen
      */
     public function getRPCAddress(): string
     {
-        return $this->get(self::CFG_RPC_ADDRESS, 'tcp://127.0.0.1:6001');
+        return $this->get(self::CFG_RPC_ADDRESS, 'tcp://localhost:6001');
     }
 
     /**

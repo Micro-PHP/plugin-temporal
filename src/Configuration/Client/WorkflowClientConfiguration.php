@@ -4,7 +4,8 @@ namespace Micro\Plugin\Temporal\Configuration\Client;
 
 use Micro\Framework\Kernel\Configuration\PluginRoutingKeyConfiguration;
 
-class WorkflowClientConfiguration extends PluginRoutingKeyConfiguration implements WorkflowClientConfigurationInterface
+class
+WorkflowClientConfiguration extends PluginRoutingKeyConfiguration implements WorkflowClientConfigurationInterface
 {
     const CFG_TEMPORAL_HOST = 'TEMPORAL_CLIENT_%s_HOST';
     const CFG_TEMPORAL_PORT = 'TEMPORAL_CLIENT_%s_PORT';

@@ -28,10 +28,10 @@ class DataConverterFactory implements DataConverterFactoryInterface
     {
         return new DataConverter(
             new DtoPayloadDataConverter($this->serializerFacade),
+            new JsonConverter(),
             new NullConverter(),
             new BinaryConverter(),
             new ProtoJsonConverter(),
-            new JsonConverter()
         );
     }
 }

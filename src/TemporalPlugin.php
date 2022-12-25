@@ -5,9 +5,13 @@ namespace Micro\Plugin\Temporal;
 use Micro\Component\DependencyInjection\Autowire\AutowireHelperFactory;
 use Micro\Component\DependencyInjection\Autowire\AutowireHelperFactoryInterface;
 use Micro\Component\DependencyInjection\Container;
-use Micro\Framework\Kernel\Plugin\AbstractPlugin;
+use Micro\Framework\Kernel\Plugin\ConfigurableInterface;
+use Micro\Framework\Kernel\Plugin\DependencyProviderInterface;
+use Micro\Framework\Kernel\Plugin\PluginConfigurationTrait;
 use Micro\Library\DTO\SerializerFacadeInterface;
 use Micro\Plugin\Locator\Facade\LocatorFacadeInterface;
+use Micro\Plugin\Temporal\Activity\Factory\ActivityStubFactory;
+use Micro\Plugin\Temporal\Activity\Factory\ActivityStubFactoryInterface;
 use Micro\Plugin\Temporal\Configuration\TemporalPluginConfigurationInterface;
 use Micro\Plugin\Temporal\Facade\TemporalFacade;
 use Micro\Plugin\Temporal\Facade\TemporalFacadeInterface;
@@ -19,17 +23,19 @@ use Micro\Plugin\Temporal\Worker\Factory\WorkerFactory;
 use Micro\Plugin\Temporal\Worker\Factory\WorkerFactoryInterface;
 use Micro\Plugin\Temporal\Workflow\Client\Factory\ClientFactory;
 use Micro\Plugin\Temporal\Workflow\Client\Factory\ClientFactoryInterface;
-use Micro\Plugin\Temporal\Workflow\Client\Repository\ClientRepository;
 use Micro\Plugin\Temporal\Workflow\Client\Repository\ClientRepositoryFactory;
 use Micro\Plugin\Temporal\Workflow\Client\Repository\ClientRepositoryFactoryInterface;
+use Micro\Plugin\Temporal\Workflow\Client\Repository\ClientRepositoryInterface;
 use Micro\Plugin\Temporal\Workflow\DataConverter\DataConverterFactory;
 use Micro\Plugin\Temporal\Workflow\DataConverter\DataConverterFactoryInterface;
 
 /**
  * @method TemporalPluginConfigurationInterface configuration()
  */
-class TemporalPlugin extends AbstractPlugin
+class TemporalPlugin implements DependencyProviderInterface, ConfigurableInterface
 {
+    use PluginConfigurationTrait;
+
     /**
      * @var SerializerFacadeInterface|null
      */
@@ -69,7 +75,8 @@ class TemporalPlugin extends AbstractPlugin
     {
         return new TemporalFacade(
             clientRepository: $this->createWorkflowClientRepository(),
-            workerFactory: $this->createWorkerFactory()
+            workerFactory: $this->createWorkerFactory(),
+            activityStubFactory: $this->createActivityStubFactory()
         );
     }
 
@@ -101,9 +108,9 @@ class TemporalPlugin extends AbstractPlugin
     }
 
     /**
-     * @return ClientRepository
+     * @return ClientRepositoryInterface
      */
-    protected function createWorkflowClientRepository(): ClientRepository
+    protected function createWorkflowClientRepository(): ClientRepositoryInterface
     {
         return $this->createWorkflowClientRepositoryFactory()->create();
     }
@@ -116,6 +123,17 @@ class TemporalPlugin extends AbstractPlugin
         );
     }
 
+    /**
+     * @return ActivityStubFactoryInterface
+     */
+    protected function createActivityStubFactory(): ActivityStubFactoryInterface
+    {
+        return new ActivityStubFactory();
+    }
+
+    /**
+     * @return WorkerFactoryInterface
+     */
     protected function createWorkerFactory(): WorkerFactoryInterface
     {
         return new WorkerFactory(

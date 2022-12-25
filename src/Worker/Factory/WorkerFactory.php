@@ -40,7 +40,7 @@ class WorkerFactory implements WorkerFactoryInterface
 
         $worker = $workerFactory->newWorker(
             $configuration->getQueueName(),
-            WorkerOptions::new()
+            WorkerOptions::new(),
         );
 
         $this->workerExpanderFactory->create()->expand($worker);
