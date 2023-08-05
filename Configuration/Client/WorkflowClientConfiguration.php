@@ -2,7 +2,7 @@
 
 namespace Micro\Plugin\Temporal\Configuration\Client;
 
-use Micro\Framework\Kernel\Configuration\PluginRoutingKeyConfiguration;
+use Micro\Framework\BootConfiguration\Configuration\PluginRoutingKeyConfiguration;
 
 class
 WorkflowClientConfiguration extends PluginRoutingKeyConfiguration implements WorkflowClientConfigurationInterface

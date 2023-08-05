@@ -4,10 +4,10 @@ namespace Micro\Plugin\Temporal;
 
 use Micro\Component\DependencyInjection\Autowire\AutowireHelperFactory;
 use Micro\Component\DependencyInjection\Autowire\AutowireHelperFactoryInterface;
-use Micro\Component\DependencyInjection\Container;
-use Micro\Framework\Kernel\Plugin\ConfigurableInterface;
-use Micro\Framework\Kernel\Plugin\DependencyProviderInterface;
-use Micro\Framework\Kernel\Plugin\PluginConfigurationTrait;
+use Micro\Framework\DependencyInjection\Container;
+use Micro\Framework\BootConfiguration\Plugin\ConfigurableInterface;
+use Micro\Framework\BootDependency\Plugin\DependencyProviderInterface;
+use Micro\Framework\BootConfiguration\Plugin\PluginConfigurationTrait;
 use Micro\Library\DTO\SerializerFacadeInterface;
 use Micro\Plugin\Locator\Facade\LocatorFacadeInterface;
 use Micro\Plugin\Temporal\Activity\Factory\ActivityStubFactory;

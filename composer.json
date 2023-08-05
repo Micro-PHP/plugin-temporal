@@ -1,12 +1,11 @@
 {
     "name": "micro/plugin-temporal",
     "description": "Micro Framework: TemporalIO plugin",
-    "type": "library",
+    "type": "micro-library",
     "license": "MIT",
-    "version": "1.0",
     "autoload": {
         "psr-4": {
-            "Micro\\Plugin\\Temporal\\": "src/"
+            "Micro\\Plugin\\Temporal\\": "/"
         }
     },
     "authors": [
@@ -16,12 +15,9 @@
         }
     ],
     "require": {
-        "micro/kernel": "^1",
+        "micro/kernel": "^2.0",
         "temporal/sdk": ">=2.0",
         "spiral/tokenizer": ">=2.7"
     },
-    "require-dev": {
-    },
-    "scripts": {
-    }
+    "minimum-stability": "dev"
 }

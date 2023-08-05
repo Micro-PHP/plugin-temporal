@@ -3,7 +3,7 @@
 namespace Micro\Plugin\Temporal\Configuration\Worker;
 
 use JetBrains\PhpStorm\ExpectedValues;
-use Micro\Framework\Kernel\Configuration\PluginRoutingKeyConfiguration;
+use Micro\Framework\BootConfiguration\Configuration\PluginRoutingKeyConfiguration;
 use Spiral\RoadRunner\Environment\Mode;
 use Temporal\Worker\WorkerFactoryInterface as TemporalWorkerFactoryInterface;
 

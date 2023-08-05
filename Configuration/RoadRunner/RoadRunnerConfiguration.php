@@ -3,7 +3,7 @@
 namespace Micro\Plugin\Temporal\Configuration\RoadRunner;
 
 use JetBrains\PhpStorm\ExpectedValues;
-use Micro\Framework\Kernel\Configuration\PluginRoutingKeyConfiguration;
+use Micro\Framework\BootConfiguration\Configuration\PluginRoutingKeyConfiguration;
 use Spiral\RoadRunner\Environment\Mode;
 
 class RoadRunnerConfiguration extends PluginRoutingKeyConfiguration implements RoadRunnerConfigurationInterface

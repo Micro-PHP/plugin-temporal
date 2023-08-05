@@ -2,7 +2,7 @@
 
 namespace Micro\Plugin\Temporal;
 
-use Micro\Framework\Kernel\Configuration\PluginConfiguration;
+use Micro\Framework\BootConfiguration\Configuration\PluginConfiguration;
 use Micro\Plugin\Temporal\Configuration\Client\WorkflowClientConfiguration;
 use Micro\Plugin\Temporal\Configuration\Client\WorkflowClientConfigurationInterface;
 use Micro\Plugin\Temporal\Configuration\RoadRunner\RoadRunnerConfiguration;
